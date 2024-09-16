@@ -4,18 +4,22 @@ import { useContext, useState } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, description, price, image }) => {
-  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
-const[itemCount, setItemCount] = useState(0)
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
+  const [itemCount, setItemCount] = useState(0);
+
   return (
     <div className="food-item">
       <div className="food-item-image-container">
-        <img src={url + "/image/" + image} alt="" className="food-item-image" />
+        {/* <img src={url + "/image/" + image} alt="" className="food-item-image" /> */}
+        <img src={image} alt="" className="food-item-image" />
+        {/* {imageUrl && <img src={imageUrl} alt="Uploaded" style={{ width: '300px', height: 'auto' }} />} */}
         {!cartItems[id] ? (
           <img
             className="add"
             onClick={() => addToCart(id)}
             src={assets.add_icon_white}
-          /> 
+          />
         ) : (
           <div className="food-item-counter">
             <img

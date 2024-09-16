@@ -13,6 +13,7 @@ const Cart = () => {
     getCartTotalAmount,
     url
   } = useContext(StoreContext);
+  console.log("total number if items in the cart", cartItems)
   const navigate = useNavigate();
   return (
     <div className="cart">

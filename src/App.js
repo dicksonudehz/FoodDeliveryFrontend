@@ -12,24 +12,24 @@ import Verify from "./pages/verify/Verify";
 import MyOrders from "./pages/orders/MyOrders";
 
 function App() {
-  const[showLogin, setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <>
-    {showLogin ?<LoginPopUp setShowLogin={setShowLogin}/>:<></>}
+      {showLogin ? <LoginPopUp setShowLogin={setShowLogin} /> : <></>}
 
-    <div className="App">
-      <BrowserRouter>
-        <Navbar setShowLogin={setShowLogin} showLogin={showLogin}/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/placeOrder" element={<PlaceOrder />} />
-          <Route path="/verify" element={<Verify />} />
-          <Route path="/myorders" element={<MyOrders />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-    <Footer/>
+      <div className="App">
+        <BrowserRouter>
+          <Navbar setShowLogin={setShowLogin} showLogin={showLogin} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/placeOrder" element={<PlaceOrder />} />
+            <Route path="/verify" element={<Verify />} />
+            <Route path="/myorders" element={<MyOrders />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <Footer />
     </>
   );
 }
