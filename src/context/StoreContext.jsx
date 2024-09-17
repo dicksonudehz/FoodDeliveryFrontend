@@ -5,7 +5,8 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const url = " http://localhost:7500";
+  // const url = " http://localhost:7500";
+  const url = " https://food-delivery-backend-peach.vercel.app";
   const [token, setToken] = useState("");
   const [food_list, setFood_list] = useState([]);
   const [cartItems, setCartItems] = useState({});
@@ -57,20 +58,17 @@ const StoreContextProvider = (props) => {
       url + "/api/cart/get",
       {},
       { headers: { token } }
-    )
-    setCartItems(res.data.cartData)
-    console.log("the total numberof items in the cart", res.data)
-
+    );
+    setCartItems(res.data.cartData);
+    console.log("the total numberof items in the cart", res.data);
   };
-
-
 
   useEffect(() => {
     async function loadData() {
       fetchFoodList();
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
-        await loadedCartItem(localStorage.getItem("token"))
+        await loadedCartItem(localStorage.getItem("token"));
       }
     }
     loadData();
