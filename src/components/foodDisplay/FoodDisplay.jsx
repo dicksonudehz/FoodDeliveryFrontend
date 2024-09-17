@@ -6,11 +6,9 @@ import "./foodDisplay.css";
 const FoodDisplay = ({ category }) => {
   const { food_list } = useContext(StoreContext);
 
-  console.log("this are the food_list", food_list);
-
   return (
     <div className="food-display" id="food-display">
-      <h1>explore dish in your aread</h1>
+      <h1>explore dish in your area</h1>
       <div className="food-display-list">
         {food_list.map((item, index) => {
           if (category === "All" || category === item.category) {

@@ -11,9 +11,8 @@ const Cart = () => {
     addToCart,
     removeFromCart,
     getCartTotalAmount,
-    url
+    url,
   } = useContext(StoreContext);
-  console.log("total number if items in the cart", cartItems)
   const navigate = useNavigate();
   return (
     <div className="cart">
@@ -33,7 +32,8 @@ const Cart = () => {
             return (
               <>
                 <div className="cart-items-title cart-items-item">
-                  <img src={url + "/image/" + item.image} alt="" />
+                  {/* <img src={url + "/image/" + item.image} alt="" /> */}
+                  <img src={item.image} alt="" />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
@@ -58,12 +58,12 @@ const Cart = () => {
           <hr />
           <div className="cart-total-details">
             <p>Delivery fee</p>
-            <p>${getCartTotalAmount() === 0 ? 0: 9}</p>
+            <p>${getCartTotalAmount() === 0 ? 0 : 9}</p>
           </div>
           <hr />
           <div className="cart-total-details">
             <b>Total</b>
-            <b>${getCartTotalAmount() === 0 ? 0:getCartTotalAmount() + 9}</b>
+            <b>${getCartTotalAmount() === 0 ? 0 : getCartTotalAmount() + 9}</b>
           </div>
           <button onClick={() => navigate("/placeOrder ")}>
             proceed to checkout

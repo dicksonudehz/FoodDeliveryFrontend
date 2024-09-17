@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   // const url = " http://localhost:7500";
-  const url = " https://food-delivery-backend-peach.vercel.app";
+  const url = "https://food-delivery-backend-peach.vercel.app";
   const [token, setToken] = useState("");
   const [food_list, setFood_list] = useState([]);
   const [cartItems, setCartItems] = useState({});
@@ -42,7 +42,10 @@ const StoreContextProvider = (props) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         let itemInfo = food_list.find((product) => product._id === item);
-        // totalAmount += itemInfo.price * cartItems[item];
+        console.log("itemInfo", itemInfo);
+        if (itemInfo) {
+          totalAmount += itemInfo.price * cartItems[item];
+        }
       }
     }
     return totalAmount;
@@ -60,7 +63,6 @@ const StoreContextProvider = (props) => {
       { headers: { token } }
     );
     setCartItems(res.data.cartData);
-    console.log("the total numberof items in the cart", res.data);
   };
 
   useEffect(() => {
