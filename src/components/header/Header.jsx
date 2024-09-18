@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <div className="header">
       <div className="header-contents">
@@ -11,7 +13,7 @@ const Header = () => {
           pariatur quae enim distinctio, repellat asperiores qui optio ratione
           facere eaque! 
         </p>
-        <button>view order</button>
+        <button onClick={() => navigate("/myorders")}>view order</button>
       </div>
     </div>
   );
